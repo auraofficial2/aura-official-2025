@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Draw Entry | Aura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-lg">
+        <h1 class="text-2xl font-bold text-center mb-4">Aura Lucky Draw 2025</h1>
+        <p class="text-center text-gray-600 mb-4">Entry Fee: Rs. 100</p><label class="block mb-2 font-semibold">آپ کا نام:</label>
+    <input id="name" type="text" class="w-full p-2 border rounded-lg mb-4" placeholder="اپنا نام درج کریں">
+
+    <label class="block mb-2 font-semibold">آپ کا نمبر:</label>
+    <input id="phone" type="text" class="w-full p-2 border rounded-lg mb-4" placeholder="0300-1234567">
+
+    <button onclick="addEntry()" class="w-full bg-blue-600 text-white p-2 rounded-xl">Entry Submit کریں</button>
+
+    <h2 class="text-xl font-bold mt-6 mb-2">Total Entries</h2>
+    <ul id="entryList" class="list-disc pr-5"></ul>
+
+    <button onclick="pickWinner()" class="w-full bg-green-600 text-white p-2 mt-4 rounded-xl">Winner Choose کریں</button>
+
+    <h2 class="text-xl font-bold mt-4">Winner:</h2>
+    <p id="winner" class="text-xl text-red-600 font-semibold"></p>
+</div>
+
+<script>
+let entries = [];
+
+function addEntry() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+
+    if (!name || !phone) {
+        alert('براہ کرم نام اور نمبر درج کریں');
+        return;
+    }
+
+    entries.push({ name, phone });
+    updateList();
+
+    document.getElementById('name').value = '';
+    document.getElementById('phone').value = '';
+}
+
+function updateList() {
+    const list = document.getElementById('entryList');
+    list.innerHTML = '';
+
+    entries.forEach((e, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${e.name} - ${e.phone}`;
+        list.appendChild(li);
+    });
+}
+
+function pickWinner() {
+    if (entries.length === 0) {
+        alert('کوئی entry موجود نہیں ہے!');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * entries.length);
+    const winner = entries[randomIndex];
+    document.getElementById('winner').textContent = `${winner.name} (${winner.phone})`;
+}
+</script></body>
+</html>
