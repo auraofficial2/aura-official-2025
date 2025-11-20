@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aura Official 2025</title>
+<link rel="manifest" href="manifest.json" />
+<style>
+body { margin:0; background:#000; color:#ffd700; font-family:sans-serif; text-align:center; }
+.box { margin-top:80px; font-size:28px; }
+.button {
+  display:inline-block; margin-top:25px; padding:15px 30px; 
+  background:#ffd700; color:#000; font-size:22px; border-radius:10px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <h1>Aura Official 2025</h1>
+    <p>Rupees / Points: 0</p>
+    <div class="button">Start Earning</div>
+</div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
